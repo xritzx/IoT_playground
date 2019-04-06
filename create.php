@@ -1,8 +1,18 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "iot";
+    // $servername = "localhost";
+    // $username = "root";
+    // $password = "";
+    // $dbname = "iot";
+    // $dbtable = "iotUSER";
+
+
+    $url = getenv('JAWSDB_URL');
+    $dbparts = parse_url($url);
+
+    $servername = $dbparts['host'];
+    $username = $dbparts['user'];
+    $password = $dbparts['pass'];
+    $dbname = ltrim($dbparts['path'],'/');
     $dbtable = "iotUSER";
 
     try {
