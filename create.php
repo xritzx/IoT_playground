@@ -6,7 +6,7 @@
     // $dbtable = "iotUSER";
 
 
-    $url = getenv('JAWSDB_URL');
+    $url = 'mysql://uygb6pmovwu6cx5s:v5ptw8fvkwiwv054@pfw0ltdr46khxib3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/fw7m3t4h30lpmtlm';
     $dbparts = parse_url($url);
 
     $servername = $dbparts['host'];
@@ -27,7 +27,7 @@
                 name VARCHAR(30) PRIMARY KEY,
                 value INT(100) NOT NULL
             );";
-            
+
         if ($conn->exec($create_table)) {
             echo "Table Created";
         }
