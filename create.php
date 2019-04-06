@@ -9,8 +9,6 @@
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        echo "Connected successfully"; 
-
         $name = $_POST['name'];
         $value = $_POST['value'];
 
