@@ -5,23 +5,27 @@
     $dbname = "iot";
     $dbtable = "iotUSER";
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
-    echo "DB Connected successfully";
+        echo "Connected successfully"; 
 
-    $name = $_POST['name'];
-    $value = $_POST['value'];
-    
-    if($conn->query("INSERT INTO $dbtable (name, value) VALUES ('$name', '$value')")){
-        header("location:./?name=$name");
+        $name = $_POST['name'];
+        $value = $_POST['value'];
+
+        if($conn->exec("INSERT INTO $dbtable (name, value) VALUES ('$name', '$value')")){
+            header("location:./?name=$name");
+        }
     }
-    else{
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+
+    catch(PDOException $e)
+        {
+        echo "Connection failed: " . $e->getMessage();
+        }
+
+
+
     
+  
 ?>
