@@ -6,7 +6,7 @@
     // $dbname = "iot";
     // $dbtable = "iotUSER";
 
-    $url = 'mysql://uygb6pmovwu6cx5s:v5ptw8fvkwiwv054@pfw0ltdr46khxib3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/fw7m3t4h30lpmtlm';
+    $url = getenv('JAWSDB_URL');
     $dbparts = parse_url($url);
 
     $servername = $dbparts['host'];
