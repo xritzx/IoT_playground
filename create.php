@@ -21,6 +21,16 @@
 
         $name = $_POST['name'];
         $value = $_POST['value'];
+        
+        $create_table = "
+            CREATE TABLE IF NOT EXISTS iotUSER (
+                name VARCHAR(30) PRIMARY KEY,
+                value INT(100) NOT NULL
+            );";
+            
+        if ($conn->exec($create_table)) {
+            echo "Table Created";
+        }
 
         if($conn->exec("INSERT INTO $dbtable (name, value) VALUES ('$name', '$value')")){
             header("location:./?name=$name");

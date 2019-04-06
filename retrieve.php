@@ -6,7 +6,7 @@
     // $password = "";
     // $dbname = "iot";
     // $dbtable = "iotUSER";
-    
+
     $url = getenv('JAWSDB_URL');
     $dbparts = parse_url($url);
 
@@ -39,3 +39,7 @@
 
    
 ?>
+
+
+
+
